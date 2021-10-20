@@ -7,8 +7,8 @@ import javax.ejb.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
-import de.exp.ai.scraping.data.entity.*;
-import de.exp.ai.scraping.data.access.*;
+import de.kunz.scraping.data.entity.*;
+import de.kunz.scraping.data.access.*;
 
 @Stateless
 @Path("constants")

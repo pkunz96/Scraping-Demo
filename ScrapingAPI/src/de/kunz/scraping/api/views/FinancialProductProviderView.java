@@ -1,6 +1,6 @@
 package de.kunz.scraping.api.views;
 
-import de.exp.ai.scraping.data.entity.*;
+import de.kunz.scraping.data.entity.*;
 import de.kunz.scraping.api.views.BrokerView.IDGeneratator;
 
 public class FinancialProductProviderView {

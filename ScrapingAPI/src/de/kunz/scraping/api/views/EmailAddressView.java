@@ -1,7 +1,7 @@
 package de.kunz.scraping.api.views;
 
-import de.exp.ai.scraping.data.entity.Datasource;
-import de.exp.ai.scraping.data.entity.EmailAddress;
+import de.kunz.scraping.data.entity.Datasource;
+import de.kunz.scraping.data.entity.EmailAddress;
 import de.kunz.scraping.api.views.BrokerView.IDGeneratator;
 
 public class EmailAddressView {

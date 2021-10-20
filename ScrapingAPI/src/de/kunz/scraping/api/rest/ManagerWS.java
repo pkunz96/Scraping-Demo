@@ -8,13 +8,13 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 import javax.ws.rs.core.Response.Status;
 
-import de.exp.ai.scraping.manager.*;
-import de.exp.ai.scraping.conf.IScrapingConfiguration;
-import de.exp.ai.scraping.data.access.*;
-import de.exp.ai.scraping.data.access.CountryAccessEJBLocal.CountryIdentifier;
-import de.exp.ai.scraping.data.entity.*;
-import de.exp.ai.scraping.identification.IdentityBeanLocal;
-import de.exp.ai.scraping.manager.IContext;
+import de.kunz.scraping.manager.*;
+import de.kunz.scraping.conf.IScrapingConfiguration;
+import de.kunz.scraping.data.access.*;
+import de.kunz.scraping.data.access.CountryAccessEJBLocal.CountryIdentifier;
+import de.kunz.scraping.data.entity.*;
+import de.kunz.scraping.identification.IdentityBeanLocal;
+import de.kunz.scraping.manager.IContext;
 import de.kunz.scraping.api.views.*;
 
  

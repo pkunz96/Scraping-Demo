@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import de.exp.ai.scraping.data.entity.*;
+import de.kunz.scraping.data.entity.*;
 import de.kunz.scraping.api.views.BrokerView.IDGeneratator;
 
 public class PersonView {

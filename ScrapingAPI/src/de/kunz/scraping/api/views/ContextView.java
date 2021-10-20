@@ -1,7 +1,7 @@
 package de.kunz.scraping.api.views;
 
-import de.exp.ai.scraping.util.*;
-import de.exp.ai.scraping.manager.*;
+import de.kunz.scraping.util.*;
+import de.kunz.scraping.manager.*;
 
 public class ContextView {
 	
