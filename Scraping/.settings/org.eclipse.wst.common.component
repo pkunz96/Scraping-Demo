@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+            
+    
+    <wb-module deploy-name="Scraping">
+                        
+        
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+                        
+        
+        <dependent-module archiveName="expAIScrapingEJB.jar" deploy-path="/" handle="module:/resource/expAIScrapingEJB/expAIScrapingEJB">
+                                    
+            
+            <dependent-object/>
+                                    
+            
+            <dependency-type>uses</dependency-type>
+                                
+        
+        </dependent-module>
+                
+        <dependent-module archiveName="ScrapingAPI.war" deploy-path="/" handle="module:/resource/ScrapingAPI/ScrapingAPI">
+                        
+            <dependent-object/>
+                        
+            <dependency-type>uses</dependency-type>
+                    
+        </dependent-module>
+                    
+    
+    </wb-module>
+        
+
+</project-modules>

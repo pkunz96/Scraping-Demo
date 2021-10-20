@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:ScrapingConfiguration xmlns:ns2="http://exp-ai.de/services/conf/scraping">
+    <SourcingConfiguration>
+        <ProviderConfigurationContainer>
+            
+            <ProviderConfiguration profileName="ergo" sourceType="JSON" htmlAdapterClassName="de.exp.ai.scraping.sourcing.provider.adapter.ErgoHTMLAdapter">
+                <BaseKeySequence>
+                    <KeyFragment>Agents</KeyFragment>  
+                </BaseKeySequence> 
+                <ValueContextConfigurations>
+                    <JSONValueContextConfiguration valueContextName="businessRelations" sourceType="HTML">
+                        <ValueContextKeySequence>
+                            <KeyFragment>#homepage</KeyFragment>
+                        </ValueContextKeySequence>
+                        <ValueConfigurations>
+                            <ValueConfiguration valueName="businessRelationTitle" sourceType="HTML">
+                                <RelativeKeySequence>
+                                    <KeyFragment>.erg-agencystage-contactbox__name</KeyFragment>
+                                    <KeyFragment>.erg-paragraph</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters /> 
+                            </ValueConfiguration> 
+                            <ValueConfiguration valueName="businessRelationLegalStatus" sourceType="HTML">
+                                <RelativeKeySequence> 
+                                    <KeyFragment>undefined</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters>  
+                                    <entry> 
+                                        <key>default</key> 
+                                        <value>Handelvertreter nach § 84 HGB</value>
+                                    </entry>
+                                </Parameters>
+                            </ValueConfiguration> 
+                            <ValueConfiguration valueName="businessRelationCommissioningFinancialProductProviderName" sourceType="HTML">
+                                <RelativeKeySequence>
+                                    <KeyFragment>undefined</KeyFragment> 
+                                </RelativeKeySequence>
+                                <Parameters>    
+                                    <entry>
+                                        <key>default</key>
+                                        <value>ERGO Beratung und Vertrieb AG</value>
+                                    </entry>
+                                </Parameters> 
+                            </ValueConfiguration> 
+                        </ValueConfigurations>     
+                    </JSONValueContextConfiguration> 
+                    <JSONValueContextConfiguration valueContextName="concessions" sourceType="HTML">
+                        <ValueContextKeySequence>
+                                    <KeyFragment>#registerNumbers</KeyFragment>
+                        </ValueContextKeySequence>
+                        <ValueConfigurations>
+                            <ValueConfiguration valueName="concession" sourceType="HTML">
+                                <RelativeKeySequence>
+                                    <KeyFragment>undefined</KeyFragment>
+                                </RelativeKeySequence> 
+                                <Parameters>
+                                    <entry> 
+                                        <key>default</key> 
+                                        <value>Gebundener Versicherungsvertreter nach § 34d Abs. 7 GewO</value>  
+                                    </entry>
+                                </Parameters>
+                            </ValueConfiguration> 
+                            <ValueConfiguration valueName="registerNo" sourceType="HTML">
+                                <RelativeKeySequence> 
+                                    <KeyFragment>#registerNumber</KeyFragment> 
+                                </RelativeKeySequence>
+                                <Parameters/> 
+                            </ValueConfiguration>    
+                        </ValueConfigurations>  
+                    </JSONValueContextConfiguration>
+                    <JSONValueContextConfiguration valueContextName="mobilePhoneNumbers" sourceType="JSON">
+                        <ValueContextKeySequence />
+                        <ValueConfigurations>
+                            <ValueConfiguration valueName="mobilePhoneNumber" sourceType="JSON">
+                                <RelativeKeySequence>
+                                    <KeyFragment>mobile</KeyFragment>
+                                </RelativeKeySequence>  
+                                <Parameters />
+                            </ValueConfiguration>
+                            <ValueConfiguration valueName="isPrivateMobilePhoneNumber" sourceType="JSON">
+                                <RelativeKeySequence>
+                                    <KeyFragment>undefined</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters>
+                                    <entry>
+                                        <key>default</key>  
+                                        <value>false</value>  
+                                    </entry>
+                                </Parameters>  
+                            </ValueConfiguration>  
+                        </ValueConfigurations>
+                    </JSONValueContextConfiguration>    
+                    <JSONValueContextConfiguration valueContextName="emailAddresses" sourceType="HTML">
+                        <ValueContextKeySequence>
+                            <KeyFragment>#emails</KeyFragment> 
+                        </ValueContextKeySequence>
+                        <ValueConfigurations>
+                            <ValueConfiguration valueName="emailAddress" sourceType="HTML">
+                                <RelativeKeySequence>
+                                    <KeyFragment>#email</KeyFragment>
+                                </RelativeKeySequence> 
+                            </ValueConfiguration> 
+                            <ValueConfiguration valueName="isPrivateEmailAddress" sourceType="HTML">
+                                <RelativeKeySequence>
+                                    <KeyFragment>undefined</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters>
+                                    <entry> 
+                                        <key>default</key>    
+                                        <value>false</value>  
+                                    </entry>
+                                </Parameters>  
+                            </ValueConfiguration> 
+                        </ValueConfigurations>
+                    </JSONValueContextConfiguration>
+                    <JSONValueContextConfiguration valueContextName="phoneNumbers" sourceType="JSON">
+                        <ValueContextKeySequence />
+                        <ValueConfigurations>
+                            <ValueConfiguration valueName="phoneNumber" sourceType="JSON">
+                                <RelativeKeySequence>
+                                    <KeyFragment>phone</KeyFragment> 
+                                </RelativeKeySequence> 
+                                <Parameters />  
+                            </ValueConfiguration>
+                            <ValueConfiguration valueName="isPrivatePhoneNumber" sourceType="JSON">
+                                <RelativeKeySequence>
+                                    <KeyFragment>undefined</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters>
+                                    <entry>
+                                        <key>default</key>  
+                                        <value>false</value>  
+                                    </entry>
+                                </Parameters> 
+                            </ValueConfiguration> 
+                        </ValueConfigurations>
+                    </JSONValueContextConfiguration>
+                    <JSONValueContextConfiguration valueContextName="properties" sourceType="JSON">
+                        <ValueContextKeySequence>
+                            <KeyFragment>undefined</KeyFragment>
+                        </ValueContextKeySequence>
+                        <ValueConfigurations /> 
+                    </JSONValueContextConfiguration>
+                </ValueContextConfigurations> 
+                <ValueConfigurations>
+                    <ValueConfiguration valueName="prename" sourceType="JSON" filterChainName="prenameExtractionChain">
+                        <RelativeKeySequence>
+                            <KeyFragment>firstname</KeyFragment>
+                        </RelativeKeySequence>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="lastname" sourceType="JSON" filterChainName="lastnameExtractionChain">
+                        <RelativeKeySequence>
+                            <KeyFragment>lastname</KeyFragment> 
+                        </RelativeKeySequence>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="businesStreet" sourceType="JSON" filterChainName="streetExtractionChain">
+                        <RelativeKeySequence>
+                            <KeyFragment>address</KeyFragment>
+                        </RelativeKeySequence>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="businessHouseNo" sourceType="JSON" filterChainName="houseNoExtractionChain">
+                        <RelativeKeySequence>
+                            <KeyFragment>address</KeyFragment>
+                        </RelativeKeySequence>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="businessZipCode" sourceType="JSON">
+                        <RelativeKeySequence>
+                            <KeyFragment>zipcode</KeyFragment>
+                        </RelativeKeySequence>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="businessTown" sourceType="JSON">
+                        <RelativeKeySequence>
+                            <KeyFragment>city</KeyFragment>
+                        </RelativeKeySequence>
+                    </ValueConfiguration> 
+                    <ValueConfiguration valueName="isSmallBusiness" sourceType="JSON">
+                        <RelativeKeySequence> 
+                            <KeyFragment>undefined</KeyFragment> 
+                        </RelativeKeySequence>
+                        <Parameters>   
+                            <entry>
+                                <key>default</key>
+                                <value>true</value>   
+                            </entry>    
+                        </Parameters>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="countryCode" sourceType="JSON">
+                        <RelativeKeySequence>
+                            <KeyFragment>undefined</KeyFragment>
+                        </RelativeKeySequence>
+                        <Parameters>  
+                            <entry>
+                                <key>default</key>
+                                <value>DE</value>
+                            </entry>
+                        </Parameters>
+                    </ValueConfiguration>
+                </ValueConfigurations>
+            </ProviderConfiguration>
+              
+            <ProviderConfiguration profileName="devk" sourceType="JSON" htmlAdapterClassName="de.exp.ai.scraping.sourcing.provider.adapter.DEVKHtmlAdapter">
+                <BaseKeySequence>
+                    <KeyFragment>locations</KeyFragment>
+                </BaseKeySequence>
+                <ValueConfigurations>
+                    <ValueConfiguration valueName="isSmallBusiness" sourceType="JSON">
+                        <RelativeKeySequence> 
+                            <KeyFragment>undefined</KeyFragment>
+                        </RelativeKeySequence>
+                        <Parameters>   
+                            <entry>
+                                <key>default</key>
+                                <value>true</value>   
+                            </entry>  
+                        </Parameters>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="prename" sourceType="JSON" filterChainName="prenameExtractionChain">
+                        <RelativeKeySequence>
+                            <KeyFragment>loc</KeyFragment>
+                            <KeyFragment>customByName</KeyFragment>
+                            <KeyFragment>Name VTP</KeyFragment>
+                        </RelativeKeySequence>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="lastname" sourceType="JSON" filterChainName="lastnameExtractionChain">
+                        <RelativeKeySequence> 
+                            <KeyFragment>loc</KeyFragment>
+                            <KeyFragment>customByName</KeyFragment>
+                            <KeyFragment>Name VTP</KeyFragment>
+                        </RelativeKeySequence> 
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="businesStreet" sourceType="JSON" filterChainName="streetExtractionChain">
+                        <RelativeKeySequence> 
+                            <KeyFragment>loc</KeyFragment> 
+                            <KeyFragment>address1</KeyFragment>
+                        </RelativeKeySequence>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="businessHouseNo" sourceType="JSON" filterChainName="houseNoExtractionChain">
+                        <RelativeKeySequence>
+                            <KeyFragment>loc</KeyFragment>
+                            <KeyFragment>address1</KeyFragment> 
+                        </RelativeKeySequence>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="businessZipCode" sourceType="JSON"> 
+                        <RelativeKeySequence> 
+                            <KeyFragment>loc</KeyFragment>
+                            <KeyFragment>postalCode</KeyFragment>
+                        </RelativeKeySequence>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="businessTown" sourceType="JSON">
+                        <RelativeKeySequence>
+                            <KeyFragment>loc</KeyFragment>
+                            <KeyFragment>city</KeyFragment>
+                        </RelativeKeySequence>
+                    </ValueConfiguration>
+                    <ValueConfiguration valueName="businessCountryCode" sourceType="JSON">
+                        <RelativeKeySequence>
+                            <KeyFragment>loc</KeyFragment>
+                            <KeyFragment>DE</KeyFragment>
+                        </RelativeKeySequence>
+                        <Parameters>
+                            <entry>
+                                <key>default</key> 
+                                <value>DE</value>  
+                            </entry>
+                        </Parameters>
+                    </ValueConfiguration>
+                </ValueConfigurations>
+                <ValueContextConfigurations>
+                    <JSONValueContextConfiguration valueContextName="businessRelations" sourceType="HTML">
+                        <ValueContextKeySequence>
+                            <KeyFragment>#imprint</KeyFragment>
+                        </ValueContextKeySequence>
+                        <ValueConfigurations>
+                            <ValueConfiguration valueName="businessRelationTitle" sourceType="HTML">
+                                <RelativeKeySequence>
+                                    <KeyFragment>#jobtitle</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters />
+                            </ValueConfiguration> 
+                            <ValueConfiguration valueName="businessRelationLegalStatus" filterChainName="filterLegalStatusNormalizationChain" sourceType="HTML">
+                                <RelativeKeySequence>
+                                    <KeyFragment>#legalStatus</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters>
+                                    <entry> 
+                                        <key>default</key> 
+                                        <value>Angestellter</value>  
+                                    </entry> 
+                                </Parameters> 
+                            </ValueConfiguration> 
+                            <ValueConfiguration valueName="businessRelationCommissioningFinancialProductProviderName" sourceType="HTML">
+                                <RelativeKeySequence>
+                                    <KeyFragment>undefined</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters>
+                                    <entry>
+                                        <key>default</key> 
+                                        <value>DEVK Deutsche Eisenbahn Versicherung Sach- und HUK-Versicherungsverein a.G.</value>  
+                                    </entry>
+                                </Parameters>
+                            </ValueConfiguration>
+                        </ValueConfigurations>  
+                    </JSONValueContextConfiguration> 
+                    <JSONValueContextConfiguration valueContextName="concessions" sourceType="HTML">
+                        <ValueContextKeySequence>
+                            <KeyFragment>#imprint</KeyFragment>
+                        </ValueContextKeySequence>
+                        <ValueConfigurations>
+                            <ValueConfiguration valueName="concession"  filterChainName="filterLegalStatusNormalizationChain"  sourceType="HTML">
+                                <RelativeKeySequence>
+                                    <KeyFragment>.bezeichnung</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters /> 
+                            </ValueConfiguration> 
+                            <ValueConfiguration valueName="registerNo" filterChainName="registerNoExtractionChain" sourceType="HTML">
+                                <RelativeKeySequence>
+                                    <KeyFragment>.registernummer</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters/> 
+                            </ValueConfiguration>  
+                        </ValueConfigurations> 
+                    </JSONValueContextConfiguration>
+                    <JSONValueContextConfiguration valueContextName="mobilePhoneNumbers" sourceType="JSON">
+                        <ValueContextKeySequence>
+                            <KeyFragment>loc</KeyFragment>
+                            <KeyFragment>phones</KeyFragment>
+                        </ValueContextKeySequence>
+                        <ValueConfigurations>
+                            <ValueConfiguration valueName="mobilePhoneNumber" sourceType="JSON">
+                                <RelativeKeySequence>
+                                    <KeyFragment>number</KeyFragment> 
+                                </RelativeKeySequence>  
+                                <Params />
+                            </ValueConfiguration>
+                            <ValueConfiguration valueName="isPrivateMobilePhoneNumber" sourceType="JSON">
+                                <RelativeKeySequence>
+                                    <KeyFragment>undefined</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters>
+                                    <entry>
+                                        <key>default</key>   
+                                        <value>false</value>   
+                                    </entry>
+                                </Parameters> 
+                            </ValueConfiguration> 
+                        </ValueConfigurations>
+                    </JSONValueContextConfiguration>    
+                    <JSONValueContextConfiguration valueContextName="emailAddresses" sourceType="JSON">
+                        <ValueContextKeySequence>
+                            <KeyFragment>loc</KeyFragment>
+                            <KeyFragment>emails</KeyFragment>
+                        </ValueContextKeySequence>
+                        <ValueConfigurations>
+                            <ValueConfiguration valueName="emailAddress" sourceType="JSON">
+                                <RelativeKeySequence>
+                                    <KeyFragment>value</KeyFragment>
+                                </RelativeKeySequence>
+                            </ValueConfiguration>
+                            <ValueConfiguration valueName="isPrivateEmailAddress" sourceType="JSON">
+                                <RelativeKeySequence>
+                                    <KeyFragment>undefined</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters>
+                                    <entry>
+                                        <key>default</key> 
+                                        <value>false</value>  
+                                    </entry> 
+                                </Parameters> 
+                            </ValueConfiguration> 
+                        </ValueConfigurations>
+                    </JSONValueContextConfiguration>
+                    <JSONValueContextConfiguration valueContextName="phoneNumbers" sourceType="JSON">
+                        <ValueContextKeySequence>
+                            <KeyFragment>loc</KeyFragment>
+                            <KeyFragment>phones</KeyFragment>
+                        </ValueContextKeySequence>
+                        <ValueConfigurations>
+                            <ValueConfiguration valueName="phoneNumber" sourceType="JSON">
+                                <RelativeKeySequence>
+                                    <KeyFragment>number</KeyFragment>
+                                </RelativeKeySequence> 
+                                <Params />
+                            </ValueConfiguration>
+                            <ValueConfiguration valueName="isPrivatePhoneNumber" sourceType="JSON">
+                                <RelativeKeySequence>
+                                    <KeyFragment>undefined</KeyFragment>
+                                </RelativeKeySequence>
+                                <Parameters>
+                                    <entry>
+                                        <key>default</key>  
+                                        <value>false</value>  
+                                    </entry>
+                                </Parameters> 
+                            </ValueConfiguration>
+                        </ValueConfigurations>
+                    </JSONValueContextConfiguration>
+                    <JSONValueContextConfiguration valueContextName="properties" sourceType="JSON">
+                        <ValueContextKeySequence>
+                            <KeyFragment>undefined</KeyFragment>
+                        </ValueContextKeySequence>
+                        <ValueConfigurations /> 
+                    </JSONValueContextConfiguration>
+                </ValueContextConfigurations>
+            </ProviderConfiguration> 
+       
+        </ProviderConfigurationContainer>
+        
+        
+        
+        
+        
+        <FilterChainConfigurationContainer>
+            <FilterChainConfiguration filterChainName="streetExtractionChain" isEnabled="true">
+                <FilterConfiguration name="streetExtractionFilter" classname="de.exp.ai.scraping.sourcing.filtering.FilterStreetExtraction" priority="1" isEnabled="true"/>
+            </FilterChainConfiguration>
+            <FilterChainConfiguration filterChainName="houseNoExtractionChain" isEnabled="true">
+                <FilterConfiguration name="houseNoExtractionFilter" classname="de.exp.ai.scraping.sourcing.filtering.FilterHouseNoExtraction" priority="1" isEnabled="true"/>
+            </FilterChainConfiguration>
+            <FilterChainConfiguration filterChainName="prenameExtractionChain" isEnabled="true">
+                <FilterConfiguration name="prenameExtractionFilter" classname="de.exp.ai.scraping.sourcing.filtering.FilterPrenameExtraction" priority="1" isEnabled="true"/>
+            </FilterChainConfiguration> 
+            <FilterChainConfiguration filterChainName="lastnameExtractionChain" isEnabled="true">
+                <FilterConfiguration name="lastnameExtractionFilter" classname="de.exp.ai.scraping.sourcing.filtering.FilterLastnameExtraction" priority="1" isEnabled="true"/>
+            </FilterChainConfiguration>    
+            <FilterChainConfiguration filterChainName="registerNoExtractionChain" isEnabled="true">
+                <FilterConfiguration name="registerNoExtractionFilter" classname="de.exp.ai.scraping.sourcing.filtering.FilterRegisterNoExtraction" priority="1" isEnabled="true"/>
+            </FilterChainConfiguration>  
+            <FilterChainConfiguration filterChainName="filterLegalStatusNormalizationChain" isEnabled="true">
+                <FilterConfiguration name="legalStatusNormalizationFilter" classname="de.exp.ai.scraping.sourcing.filtering.FilterLegalStatusNormalization" priority="1" isEnabled="true"/>
+            </FilterChainConfiguration>  
+        </FilterChainConfigurationContainer>  
+    
+    
+     
+    
+    
+    </SourcingConfiguration>
+    <MappingConfiguration>
+        <FilterChainConfigurationContainer/>
+    </MappingConfiguration>
+    <ReductionConfiguration/>
+    <SynchronizationConfiguration/>
+</ns2:ScrapingConfiguration>
