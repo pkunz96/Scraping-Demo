@@ -8,7 +8,7 @@ Eine Menge von EJBs, welche eine REST-API zur Steuerung des Scrapings implementi
 
 ### Paket: de.kunz.scraping.views
 
-Problemstellung: Die in de.kunz.scraping.data.entity definierten Klassen enthalten Referenzen. Beim Serialisieren würden referenzierte Objekte ebenfalls serialisiert. Stattdessen sollen beim Serialisieren lediglich die IDs referenzierter Objekte eingefügt werden. 
+Problemstellung: Die in de.kunz.scraping.data.entity definierten Entity-Klassen enthalten Referenzen. Beim Serialisieren würden referenzierte Objekte ebenfalls serialisiert. Stattdessen sollen beim Serialisieren lediglich die IDs referenzierter Objekte eingefügt werden. 
 
 Lösung: Die im Paket definierten Wrapper ersetzen Referenzen durch IDs und ermöglichen damit die Serialisierung im Sinne der Problemstellung. 
 
