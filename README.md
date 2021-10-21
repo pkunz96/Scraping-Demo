@@ -72,4 +72,19 @@ Example:
 >IQuery<Broker> brokerQuery = queryBuilder.getQuery();  
 
 Web resources able to provide information on insurance brokers are represented as instances of IDatasource. In this particular use case T is Broker. 
+    
+### Paket: de.kunz.scraping.mapping 
   
+The packet is reponsible for transforming attributes into standardized format. The implementation relies on a configurable chain of filters, where each filter performs one particular transformation on a single attribute. In contrast to de.kunz.scraping.sourcing.filtering these transformations are not datascource-specific.
+ 
+This kind of preprocessing allows for smiplified matching as performed by the interface of de.kunz.scraping.identification.
+ 
+### Paket: de.kunz.scraping.identification 
+
+The packet is concerned with the decision if two instances of Broker represent by the same physical entity. To determine whether two instances of Broker represent the same physcial entity, a client has to use the interface IdentityBeanLocalEJB. A respective instance must be retrieved by means of dependency injection. 
+    
+Internally, the passed instances are forwarded along a chain of filters, where each filter tries to match the instances basded on different attributes, e.g. names, phone numbers, or email  addresses. If all filters fail in their attempt to match the instances, false is returned to the client, otherwise true is returned.   
+
+
+  
+
