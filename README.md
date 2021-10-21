@@ -91,7 +91,13 @@ The result is passed to de.kunz.scraping.synchronization.
 
 The packet is concerned with the decision if two instances of Broker represent by the same physical entity. To determine whether two instances of Broker represent the same physcial entity, a client has to use the interface IdentityBeanLocalEJB. A respective instance must be retrieved by means of dependency injection. 
     
-Internally, the passed instances are forwarded along a chain of filters, where each filter tries to match the instances basded on different attributes, e.g. names, phone numbers, or email  addresses. If all filters fail in their attempt to match the instances, false is returned to the client, otherwise true is returned.   
+Internally, the passed instances are forwarded along a chain of filters, where each filter tries to match the instances based on different attributes, e.g. names, phone numbers, or email  addresses. If all filters fail in their attempt to match the instances, false is returned to the client, otherwise true is returned.   
+
+### Paket: de.kunz.scraping.synchronization 
+  
+Reponsible for the synchroinization of incoming instances of Broker with the underlying database. 
+  
+  
 
 
 
