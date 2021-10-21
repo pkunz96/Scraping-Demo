@@ -34,9 +34,7 @@ Definiert eine generische API für die Abfrage von Objekten, deren Klasse das In
 
 Zur Durchführung einer Abfrage muss eine Instanz von IQuery mit Hilfe einer Instanz von IQueryBuilder aufgebaut werden. Zunächst werden die Datasources spezifziert, die abgefragt werden sollen. Anschließend werden Prädikate logisch verknüpft, um auszudrücken, welche Objekte zur Ergebnismenge gehören. 
 
->IQueryBuilder<Broker> queryBuilder = IQueryBuilder.getInstance(Broker.class);  
->queryBuilder.addDatasource(datasource).startPredicate(LogicalConnective.OR);  
 >final String constraintStr = zipCodeStr + "@" + zipCodeCountryCodeStr;  
->queryBuilder.addConstraint(new de.kunz.scraping.sourcing.querying.ZipCode(), constraintStr, Relation.EUQAL);  
+>IQueryBuilder<Broker> queryBuilder = IQueryBuilder.getInstance(Broker.class).addDatasource(datasource).startPredicate(LogicalConnective.OR).addConstraint(new ZipCode(), constraintStr, Relation.EUQAL); 
 >IQuery<Broker> brokerQuery = queryBuilder.closePredicate().getQuery();  
 
