@@ -4,15 +4,15 @@
 
 ### Paket: de.kunz.scraping.api
 
-Eine Menge von EJBs, welche eine REST-API zur Steuerung des Scrapings implementieren.
+A set of EJBs implementing a REST-API to control scrapping. 
 
 ### Paket: de.kunz.scraping.views
 
-Die in de.kunz.scraping.data.entity definierten Entity-Beans enthalten Referenzen, wobei beim Serialisieren referenzierte Objekte nicht miteinbezogen werden sollen. Stattdessen sollen lediglich die IDs der refrenzierten Objekte eingefügt werden. Die im Paket definierten Wrapper ersetzen Referenzen durch IDs und ermöglichen damit diese Arte der Serialisierung.
+A set of POJOs wrapping entity beans to simplfy the REST-API. 
 
 ### Paket: de.kunz.scraping.conf
 
-CORS-Konfiguraton und Pfadinformationen.
+CORS-configuration and path information.
 
 ## ScrapingEJB
 
@@ -30,15 +30,17 @@ Sourcing implementes the communication with a variety of web resources providing
 
 Once created by the sourcing subsystem instances of Broker are asynchronously passed to the mapping subsytem, which performs datasource-specific cleaning and transformation operations.  
 
-In practice, information on a particular insurance broker is distributed across a wide range of datasoruce. As pointed out above, each datatsource creates instances of Broker individually, which in turn might lead to a situation, in which 
+In practice, information on a particular insurance broker is scattered across a wide range of datasoruce. As pointed out above, each datatsource creates instances of Broker individually, which in turn might lead to a situation, in which 
 
 * instances of broker representing the same physical entity must be matched,
-* information must beaggregated
+* information must be beaggregated
 * and conflicts must be resolved. 
 
 These steps are mainly conducted by the reduction subsytem, whose implementation relies on the identification subsytem deciding whether to instances of Broker correspond to the same physical entity. 
 
 Once reduction is completed, each insurance broker is represented by exactly on instance of Broker. Those instances are asynchronously passed to the synchronization subsystem whose task is to update the underlying database accordingly. 
+
+In the following I would like to provide a more detailed overview over the most important packages.
 
 ### Paket: de.kunz.scraping.conf
 
