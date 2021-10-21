@@ -32,7 +32,7 @@ Once created by the sourcing subsystem instances of Broker are asynchronously pa
 
 In practice, information on a particular insurance broker is distributed across a wide range of datasoruce. As pointed out above, each datatsource creates instances of Broker individually, which in turn might lead to a situation, in which 
 
-* instances of broker representing the same entity must be matched,
+* instances of broker representing the same physical entity must be matched,
 * information must beaggregated
 * and conflicts must be resolved. 
 
