@@ -60,7 +60,7 @@ Defines and impelements a generic API for querying objects implementing the inte
 
 In order to start querying, the client has to get an instance of IQueryBuilder<T> where T is the type ob objects to be queried. A datasource is supposed to return only objects of a type T whiche meet those criteria expressed in terms of predicates and constraints on attribues. 
   
-A predicate is collection of constraints and nested predicates linked by a single logical connective. An object of type T is to be returned if and only if the overall predicate evaluates to true.
+A predicate is collection of constraints and nested predicates linked by a single logical connective. An object of type T is to be returned if and only if the overall predicate specified for the query as a whole evaluates to true.
   
 Formally, predicates implement the interface IPredicate<T> whereas attribute implement IAttribute<T>. Please note that the implementation of IAttribute<T> depends on the type T, as this implementation is reponsible for checking whether a given constraint is met by a given instance of T. 
 
