@@ -39,3 +39,4 @@ Zur Durchführung einer Abfrage muss eine Instanz von IQuery mit Hilfe einer Ins
 >  IQueryBuilder.getInstance(Broker.class).addDatasource(datasource).startPredicate(LogicalConnective.OR).addConstraint(new ZipCode(), constraintStr, Relation.EUQAL).closePredicate();  
 >IQuery<Broker> brokerQuery = queryBuilder.getQuery();  
 
+Webresourcen, welche Informationen über Vermittler bereitstellen, werden eine Implementierung des Interfaces IDatasource repräsentiert. 
