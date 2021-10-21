@@ -8,7 +8,7 @@ A set of EJBs implementing a REST-API to control scrapping.
 
 ### Paket: de.kunz.scraping.views
 
-A set of POJOs wrapping entity beans to simplfy the REST-API. 
+A set of POJOs wrapping entity beans to simplify the REST-API. 
 
 ### Paket: de.kunz.scraping.conf
 
