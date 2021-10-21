@@ -79,11 +79,20 @@ The packet is reponsible for transforming attributes into standardized format. T
  
 This kind of preprocessing allows for smiplified matching as performed by de.kunz.scraping.identification.
  
+### Paket: de.kunz.scraping.reduction
+
+Stores preprocessed instances of Broker as a graph, where each node correponds to an instance. Instances are connected by an ede if and only if they represent the same physcical entity, which is decided by de.kunz.scraping.identification as outlined below. 
+
+As a result of this definition, each  connected component corresponds to physical insurance broker. Once all instances have been integrated into the graph, a second phase starts, in which an instance of MeginEJBLocal iterates over all connected componets and creates for each an aggregated instnace of Broker. 
+  
+The result is passed to de.kunz.scraping.synchronization.
+    
 ### Paket: de.kunz.scraping.identification 
 
 The packet is concerned with the decision if two instances of Broker represent by the same physical entity. To determine whether two instances of Broker represent the same physcial entity, a client has to use the interface IdentityBeanLocalEJB. A respective instance must be retrieved by means of dependency injection. 
     
 Internally, the passed instances are forwarded along a chain of filters, where each filter tries to match the instances basded on different attributes, e.g. names, phone numbers, or email  addresses. If all filters fail in their attempt to match the instances, false is returned to the client, otherwise true is returned.   
+
 
 
   
