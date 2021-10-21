@@ -44,11 +44,11 @@ In the following I would like to provide a more detailed overview over the most 
 
 ### Paket: de.kunz.scraping.conf
 
-Die Konfiguration der Anwendung wird durch eine Menge von hierarchisch organisierten Klassen repräsentiert. Es wird genau eine Instanz (Singleton) erstellt und an eine XML-Datei mittels JAXB gebunden. Bei Änderungen wird die XML-Datei automatisch aktualisiert. 
+Defines an API to read and modify subsystem-specific configuration. At moment the API is implemented based on XML and JAXB. At startup the configuration file is deserialized an translated into an object tree. Any changes to objects in that tree are immediately reflected in the configuration file to ensure persistence. 
 
 ### Paket: de.kunz.scraping.data.entity
 
-Entity-Beans
+A set of entity beans that are used as data transfer objects as well. 
 
 ### Paket: de.kunz.scraping.data.access
 
