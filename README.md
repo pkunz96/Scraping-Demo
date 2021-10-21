@@ -95,7 +95,7 @@ Internally, the passed instances are forwarded along a chain of filters, where e
 
 ### Paket: de.kunz.scraping.synchronization 
   
-Reponsible for the synchroinization of incoming instances of Broker with the underlying database. 
+Reponsible for the synchroinization of incoming instances of Broker with the underlying database. Not implemented yet. 
   
   
 
