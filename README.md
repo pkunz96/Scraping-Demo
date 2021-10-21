@@ -36,7 +36,7 @@ Zur Durchführung einer Abfrage muss eine Instanz von IQuery mit Hilfe einer Ins
 
 >IQueryBuilder<Broker> queryBuilder = IQueryBuilder.getInstance(Broker.class);  
 >queryBuilder.addDatasource(datasource).startPredicate(LogicalConnective.OR);  
->final String constraintStr = zipCodeStr + "@" + zipCodeCountryCodeStr;
->queryBuilder.addConstraint(new de.kunz.scraping.sourcing.querying.ZipCode(), constraintStr, Relation.EUQAL);
->IQuery<Broker> brokerQuery = queryBuilder.closePredicate().getQuery(); 
+>final String constraintStr = zipCodeStr + "@" + zipCodeCountryCodeStr;  
+>queryBuilder.addConstraint(new de.kunz.scraping.sourcing.querying.ZipCode(), constraintStr, Relation.EUQAL);  
+>IQuery<Broker> brokerQuery = queryBuilder.closePredicate().getQuery();  
 
