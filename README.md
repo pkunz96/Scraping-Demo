@@ -71,5 +71,5 @@ Example:
 >  IQueryBuilder.getInstance(Broker.class).addDatasource(datasource).startPredicate(LogicalConnective.OR).addConstraint(new ZipCode(), constraintStr, Relation.EUQAL).closePredicate();  
 >IQuery<Broker> brokerQuery = queryBuilder.getQuery();  
 
-Web resources able to provide information on insurance brokers are represented as instances of IDatasource.
+Web resources able to provide information on insurance brokers are represented as instances of IDatasource. In this particular use case T is Broker. 
   
