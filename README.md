@@ -77,7 +77,7 @@ Web resources able to provide information on insurance brokers are represented a
   
 The packet is reponsible for transforming attributes into standardized format. The implementation relies on a configurable chain of filters, where each filter performs one particular transformation on a single attribute. In contrast to de.kunz.scraping.sourcing.filtering these transformations are not datascource-specific.
  
-This kind of preprocessing allows for smiplified matching as performed by the interface of de.kunz.scraping.identification.
+This kind of preprocessing allows for smiplified matching as performed by de.kunz.scraping.identification.
  
 ### Paket: de.kunz.scraping.identification 
 
