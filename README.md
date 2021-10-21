@@ -52,17 +52,24 @@ A set of entity beans that are used as data transfer objects as well.
 
 ### Paket: de.kunz.scraping.data.access
 
-EJBs, die Datenbankabfragen kapseln. 
+A set of EJBs encapsulating database access. 
 
 ### Paket: de.kunz.scraping.data.querying
 
-Definiert eine generische API für die Abfrage von Objekten, deren Klasse das Interface Queryable implementiert. Eine Quelle dieser Objekte muss das Interface  IDatasource implementieren. 
+Defines and impelements a generic API for querying objects implementing the interface IQueryable. Objects are either generated or retrieved by an instance of IDatasource. 
 
-Zur Durchführung einer Abfrage muss eine Instanz von IQuery mit Hilfe einer Instanz von IQueryBuilder aufgebaut werden. Zunächst werden die Datasources spezifziert, die abgefragt werden sollen. Anschließend werden Prädikate logisch verknüpft, um auszudrücken, welche Objekte zur Ergebnismenge gehören. 
+In order to start querying, the client has to get an instance of IQueryBuilder<T> where T is the type ob objects to be queried. A datasource is supposed to return only objects of a type T whiche meet those criteria expressed in terms of predicates and constraints on attribues. 
+  
+A predicate is collection of constraints and nested predicates linked by a single logical connective. An object of type T is to be returned if and only if the overall predicate evaluates to true.
+  
+Formally, predicates implement the interface IPredicate<T> whereas attribute implement IAttribute<T>. Please note that the implementation of IAttribute<T> depends on the type T, as this implementation is reponsible for checking whether a given constraint is met by a given instance of T. 
 
+Example: 
+  
 >final String constraintStr = zipCodeStr + "@" + zipCodeCountryCodeStr;  
 >IQueryBuilder<Broker> queryBuilder =   
 >  IQueryBuilder.getInstance(Broker.class).addDatasource(datasource).startPredicate(LogicalConnective.OR).addConstraint(new ZipCode(), constraintStr, Relation.EUQAL).closePredicate();  
 >IQuery<Broker> brokerQuery = queryBuilder.getQuery();  
 
-Webresourcen, welche Informationen über Vermittler bereitstellen, werden eine Implementierung des Interfaces IDatasource repräsentiert. 
+Web resources able to provide information on insurance brokers are represented as instances of IDatasource.
+  
