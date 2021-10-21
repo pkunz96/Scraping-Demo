@@ -33,14 +33,12 @@ Once created by the sourcing subsystem instances of Broker are asynchronously pa
 In practice, information on a particular insurance broker is distributed across a wide range of datasoruce. As pointed out above, each datatsource creates instances of Broker individually, which in turn might lead to a situation, in which 
 
 * instances of broker representing the same entity must be matched,
-* information aggregated
-* and conflicts resolved. 
+* information must beaggregated
+* and conflicts must be resolved. 
 
 These steps are mainly conducted by the reduction subsytem, whose implementation relies on the identification subsytem deciding whether to instances of Broker correspond to the same physical entity. 
 
-Once reduction is completed 
-
-
+Once reduction is completed, each insurance broker is represented by exactly on instance of Broker. Those instances are asynchronously passed to the synchronization subsystem whose task is to update the underlying database accordingly. 
 
 ### Paket: de.kunz.scraping.conf
 
