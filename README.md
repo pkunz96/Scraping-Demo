@@ -113,6 +113,8 @@ de.kunz.scraping.sourcing.filtering is responsible for postprocessing. This is e
   
 ## Database Schema
 
+![Drag Racing](db_schema.png)
+
 
   
 
