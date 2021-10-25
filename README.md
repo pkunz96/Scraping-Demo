@@ -97,8 +97,21 @@ Internally, the passed instances are forwarded along a chain of filters, where e
   
 Reponsible for the synchroinization of incoming instances of Broker with the underlying database. Not implemented yet. 
   
-  
+### Paket: de.kunz.scraping.sourcing
 
+The sourcing sub-system is comprised of the following packets
+  
+  * de.kunz.scraping.sourcing
+  * de.kunz.scraping.sourcing.provider
+  * de.kunz.scraping.sourcing.filtering 
+  
+As pointed out above, web resources providing information on insurance brokers correspond to instances of IDatasource. The respective clases implementing this interface are located in de.kunz.scraping.sourcing. 
+
+The packet de.kunz.scraping.sourcing.provider defines and implements an API which allows for the extraction of relevant information from HTML and JSON documents based on datasource-specific configuration. 
+  
+de.kunz.scraping.sourcing.filtering is responsible for postprocessing. This is expecially relevant, if the relevant part of an HTML document can not be expressed in terms of CSS-Queries, e.g. a phone number embedded in continous text. Again, the implementation relies on datasource-specific configuration. 
+  
+## Database Schema
 
 
   
