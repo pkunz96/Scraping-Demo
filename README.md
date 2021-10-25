@@ -68,7 +68,7 @@ Example:
   
 >final String constraintStr = "72555@DE";    
 >IQuery<Broker> brokerQuery = IQueryBuilder.getInstance(Broker.class).addDatasource(debekaDS).addDatasource(allianzDS).startPredicate(LogicalConnective.OR).addConstraint(new ZipCode(), constraintStr, Relation.EUQAL).closePredicate().getQuery();   
->List\<Broker\> resultList = queryBuilder.execute();  
+>List\<Broker\> resultList = brokerQuery.execute();  
 
   
 Web resources able to provide information on insurance brokers are represented by instances of IDatasource. In this particular use case T is Broker. 
