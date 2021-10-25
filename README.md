@@ -75,7 +75,7 @@ Web resources able to provide information on insurance brokers are represented b
 
 ### Packet: de.kunz.scraping.mapping 
   
-Applys general transformations on attributes. The implementation relies on a configurable chain of filters, where each filter performs one particular transformation on a single attribute. This manner of preprocessing allows for smiplified matching as performed by de.kunz.scraping.identification.
+Applys general transformations on attributes. The implementation relies on a configurable chain of filters, where each filter performs one particular transformation on a single attribute. This manner of preprocessing smiplifies matching as performed by de.kunz.scraping.identification.
  
 ### Packet: de.kunz.scraping.reduction
 
