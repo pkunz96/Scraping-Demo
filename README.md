@@ -70,7 +70,9 @@ Example:
 >IQueryBuilder<Broker> queryBuilder =   
 >  IQueryBuilder.getInstance(Broker.class).addDatasource(debekaDS).addDatasource(allianzDS).startPredicate(LogicalConnective.OR).addConstraint(new ZipCode(), constraintStr, Relation.EUQAL).closePredicate();  
 >IQuery<Broker> brokerQuery = queryBuilder.getQuery();  
+>List<Broker> resultList = queryBuilder.execute();  
 
+  
 Web resources able to provide information on insurance brokers are represented by instances of IDatasource. In this particular use case T is Broker. 
 
 ### Packet: de.kunz.scraping.mapping 
