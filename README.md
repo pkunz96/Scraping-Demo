@@ -4,7 +4,7 @@
 
 ### Packet: de.kunz.scraping.api
 
-A set of EJBs implementing a REST-API to control scrapping. 
+A set of EJBs implementing a REST-API to control the application
 
 ### Packet: de.kunz.scraping.views
 
@@ -18,7 +18,7 @@ CORS-configuration and path information.
 
 ### Overwiew
 
-ScrapingEJB's EJBs architecture ist inspired by the pipe and filter architecture style. The system is mainly comprised by the following subsystems: 
+ScrapingEJB's EJBs architecture is inspired by the pipe and filter architecture style. The system is mainly comprised by the following subsystems: 
 
 * Sourcing
 * Mapping
@@ -26,14 +26,14 @@ ScrapingEJB's EJBs architecture ist inspired by the pipe and filter architecture
 * Reduction 
 * Synchronization 
 
-Sourcing implementes the communication with a variety of web resources providing information on insurance brokers and their business relations. Each insurance broker found is represented by an instance of a respective entitiy bean (Broker).  
+Sourcing implementes communication with a variety of web resources providing information on insurance brokers and their business relations. Each insurance broker found is represented by an entitiy bean (de.kunz.scraping.data.entity.Broker).  
 
-Once created by the sourcing subsystem instances of Broker are asynchronously passed to the mapping subsytem, which performs datasource-specific cleaning and transformation operations.  
+Once created by the sourcing subsystem instances of Broker are asynchronously passed to the mapping subsytem, which performs general cleaning and transformation operations.  
 
 In practice, information on a particular insurance broker is scattered across a wide range of datasoruce. As pointed out above, each datatsource creates instances of Broker individually, which in turn might lead to a situation, in which 
 
 * instances of broker representing the same physical entity must be matched,
-* information must be beaggregated
+* information must be be aggregated
 * and conflicts must be resolved. 
 
 These steps are mainly conducted by the reduction subsytem, whose implementation relies on the identification subsytem deciding whether to instances of Broker correspond to the same physical entity. 
@@ -44,7 +44,7 @@ In the following I would like to provide a more detailed overview over the most 
 
 ### Packet: de.kunz.scraping.conf
 
-Defines an API to read and modify subsystem-specific configuration. At moment the API is implemented based on XML and JAXB. At startup the configuration file is deserialized an translated into an object tree. Any changes to objects in that tree are immediately reflected in the configuration file to ensure persistence. 
+Defines an API to read and modify subsystem-specific configuration. Currently, the API is implemented based on XML and JAXB. At startup the configuration file is deserialized an translated into an object tree. Any changes to objects in that tree are immediately reflected in the configuration file to ensure persistence. 
 
 ### Packet: de.kunz.scraping.data.entity
 
