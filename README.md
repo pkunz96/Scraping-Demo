@@ -67,9 +67,7 @@ Formally, predicates implement the interface IPredicate<T> whereas attribute imp
 Example: 
   
 >final String constraintStr = "72555@DE";    
->IQueryBuilder<Broker> queryBuilder =   
->  IQueryBuilder.getInstance(Broker.class).addDatasource(debekaDS).addDatasource(allianzDS).startPredicate(LogicalConnective.OR).addConstraint(new ZipCode(), constraintStr, Relation.EUQAL).closePredicate();  
->IQuery<Broker> brokerQuery = queryBuilder.getQuery();  
+>IQuery<Broker> brokerQuery = IQueryBuilder.getInstance(Broker.class).addDatasource(debekaDS).addDatasource(allianzDS).startPredicate(LogicalConnective.OR).addConstraint(new ZipCode(), constraintStr, Relation.EUQAL).closePredicate().getQuery();   
 >List<Broker> resultList = queryBuilder.execute();  
 
   
