@@ -2,15 +2,15 @@
 
 ## ScrapingAPI
 
-### Paket: de.kunz.scraping.api
+### Packet: de.kunz.scraping.api
 
 A set of EJBs implementing a REST-API to control scrapping. 
 
-### Paket: de.kunz.scraping.views
+### Packet: de.kunz.scraping.views
 
 A set of POJOs wrapping entity beans to simplify the REST-API. 
 
-### Paket: de.kunz.scraping.conf
+### Packet: de.kunz.scraping.conf
 
 CORS-configuration and path information.
 
