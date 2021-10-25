@@ -42,19 +42,19 @@ Once reduction is completed, each insurance broker is represented by exactly on 
 
 In the following I would like to provide a more detailed overview over the most important packages.
 
-### Paket: de.kunz.scraping.conf
+### Packet: de.kunz.scraping.conf
 
 Defines an API to read and modify subsystem-specific configuration. At moment the API is implemented based on XML and JAXB. At startup the configuration file is deserialized an translated into an object tree. Any changes to objects in that tree are immediately reflected in the configuration file to ensure persistence. 
 
-### Paket: de.kunz.scraping.data.entity
+### Packet: de.kunz.scraping.data.entity
 
 A set of entity beans that are used as data transfer objects as well. 
 
-### Paket: de.kunz.scraping.data.access
+### Packet: de.kunz.scraping.data.access
 
 A set of EJBs encapsulating database access. 
 
-### Paket: de.kunz.scraping.data.querying
+### Packet: de.kunz.scraping.data.querying
 
 Defines and impelements a generic API for querying objects implementing the interface IQueryable. Objects are either generated or retrieved by an instance of IDatasource. 
 
@@ -73,13 +73,13 @@ Example:
 
 Web resources able to provide information on insurance brokers are represented as instances of IDatasource. In this particular use case T is Broker. 
     
-### Paket: de.kunz.scraping.mapping 
+### Packet: de.kunz.scraping.mapping 
   
 The packet is reponsible for transforming attributes into standardized format. The implementation relies on a configurable chain of filters, where each filter performs one particular transformation on a single attribute. In contrast to de.kunz.scraping.sourcing.filtering these transformations are not datascource-specific.
  
 This kind of preprocessing allows for smiplified matching as performed by de.kunz.scraping.identification.
  
-### Paket: de.kunz.scraping.reduction
+### Packet: de.kunz.scraping.reduction
 
 Stores preprocessed instances of Broker as a graph, where each node correponds to an instance. Instances are connected by an ede if and only if they represent the same physcical entity, which is decided by de.kunz.scraping.identification as outlined below. 
 
@@ -87,17 +87,17 @@ As a result of this definition, each  connected component corresponds to physica
   
 The result is passed to de.kunz.scraping.synchronization.
     
-### Paket: de.kunz.scraping.identification 
+### Packet: de.kunz.scraping.identification 
 
 The packet is concerned with the decision if two instances of Broker represent by the same physical entity. To determine whether two instances of Broker represent the same physcial entity, a client has to use the interface IdentityBeanLocalEJB. A respective instance must be retrieved by means of dependency injection. 
     
 Internally, the passed instances are forwarded along a chain of filters, where each filter tries to match the instances based on different attributes, e.g. names, phone numbers, or email  addresses. If all filters fail in their attempt to match the instances, false is returned to the client, otherwise true is returned.   
 
-### Paket: de.kunz.scraping.synchronization 
+### Packet: de.kunz.scraping.synchronization 
   
 Reponsible for the synchroinization of incoming instances of Broker with the underlying database. Not implemented yet. 
   
-### Paket: de.kunz.scraping.sourcing
+### Packet: de.kunz.scraping.sourcing
 
 The sourcing sub-system is comprised of the following packets
   
