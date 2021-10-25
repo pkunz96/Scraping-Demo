@@ -56,7 +56,7 @@ A set of EJBs encapsulating database queries.
 
 ### Packet: de.kunz.scraping.data.querying
 
-Defines and impelements a generic interface for querying objects implementing the interface IQueryable. Objects are either generated or retrieved by an instance of IDatasource. 
+Defines and impelements a generic interface for querying instances implementing the interface IQueryable. Objects are either generated or retrieved by an instance of IDatasource. 
 
 In order to start querying, the client has to get an instance of IQueryBuilder<T> where T is a subtype of IQueryable. A datasource is supposed to return only objects of a type T which meet the criteria expressed in terms of predicates and constraints on attribues. 
   
