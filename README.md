@@ -60,7 +60,7 @@ Defines and impelements a generic interface for querying objects implementing th
 
 In order to start querying, the client has to get an instance of IQueryBuilder<T> where T is a subtype of IQueryable. A datasource is supposed to return only objects of a type T which meet the criteria expressed in terms of predicates and constraints on attribues. 
   
-A predicate is made either made up of a collection of constraints and or collection of nested predicates linked by a single logical connective. An object of type T is to be returned if and only if the overall predicate specified for the query as a whole evaluates to true.
+A predicate is either made up of a collection of constraints and or collection of nested predicates linked by a single logical connective. An object of type T is to be returned if and only if the overall predicate specified for the query as a whole evaluates to true.
   
 Formally, predicates implement the interface IPredicate<T> whereas attribute implement IAttribute<T>. Please note that the implementation of IAttribute<T> depends on the type T, as this implementation is reponsible for checking whether a given constraint is met by a given instance of T. 
 
