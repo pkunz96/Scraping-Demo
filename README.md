@@ -68,11 +68,11 @@ Example:
   
 >final String constraintStr = "72555@DE";    
 >IQueryBuilder<Broker> queryBuilder =   
->  IQueryBuilder.getInstance(Broker.class).addDatasource(datasource).startPredicate(LogicalConnective.OR).addConstraint(new ZipCode(), constraintStr, Relation.EUQAL).closePredicate();  
+>  IQueryBuilder.getInstance(Broker.class).addDatasource(debekaDS).addDatasource(allianzDS).startPredicate(LogicalConnective.OR).addConstraint(new ZipCode(), constraintStr, Relation.EUQAL).closePredicate();  
 >IQuery<Broker> brokerQuery = queryBuilder.getQuery();  
 
 Web resources able to provide information on insurance brokers are represented by instances of IDatasource. In this particular use case T is Broker. 
-    
+
 ### Packet: de.kunz.scraping.mapping 
   
 Applys general transformations on attributes. The implementation relies on a configurable chain of filters, where each filter performs one particular transformation on a single attribute. This manner of preprocessing allows for smiplified matching as performed by de.kunz.scraping.identification.
