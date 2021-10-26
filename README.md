@@ -107,10 +107,6 @@ The packet de.kunz.scraping.sourcing.provider defines and implements an interfac
   
 de.kunz.scraping.sourcing.filtering is responsible for postprocessing. This is of importance, if the relevant part of an HTML document can not be expressed in terms of CSS-Queries, e.g. a phone number embedded in continous text. Again, the implementation relies on datasource-specific configuration. 
   
-## Database Schema
-
-![Drag Racing](db_schema.png)
-
 
   
 
